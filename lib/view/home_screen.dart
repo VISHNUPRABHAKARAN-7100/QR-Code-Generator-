@@ -8,72 +8,75 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) =>  AddTextScreen(),
-                  ),
-                );
-              },
-              child: Column(
-                children: [
-                  Container(
-                    height: 150,
-                    width: 150,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      image: const DecorationImage(
-                        fit: BoxFit.fill,
-                        image: AssetImage('asset/add_title.png'),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+// Button to create a new QR code
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => AddTextScreen(),
+                    ),
+                  );
+                },
+                child: Column(
+                  children: [
+                    Container(
+                      height: 150,
+                      width: 150,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        image: const DecorationImage(
+                          fit: BoxFit.fill,
+                          image: AssetImage('asset/add_title.png'),
+                        ),
                       ),
                     ),
-                  ),
-                  Text(
-                    'Create QR Code',
-                    style: GoogleFonts.robotoMono(
-                        fontSize: 18, fontWeight: FontWeight.bold, height: 3),
-                  )
-                ],
+                    Text(
+                      'Create QR Code',
+                      style: GoogleFonts.robotoMono(
+                          fontSize: 18, fontWeight: FontWeight.bold, height: 3),
+                    )
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(
-              width: 30,
-            ),
-            GestureDetector(
-              child: Column(
-                children: [
-                  Container(
-                    height: 150,
-                    width: 150,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      image: const DecorationImage(
-                        fit: BoxFit.fill,
-                        image: AssetImage('asset/scan_code.png'),
+              const SizedBox(
+                width: 30,
+              ),
+// Button for scan a QR Code
+              GestureDetector(
+                child: Column(
+                  children: [
+                    Container(
+                      height: 150,
+                      width: 150,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        image: const DecorationImage(
+                          fit: BoxFit.fill,
+                          image: AssetImage('asset/scan_code.png'),
+                        ),
                       ),
                     ),
-                  ),
-                  Text(
-                    'Scan',
-                    style: GoogleFonts.robotoMono(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      height: 3,
-                    ),
-                  )
-                ],
+                    Text(
+                      'Scan',
+                      style: GoogleFonts.robotoMono(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        height: 3,
+                      ),
+                    )
+                  ],
+                ),
               ),
-            ),
-          ],
-        ),
-      ],
-    ));
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }

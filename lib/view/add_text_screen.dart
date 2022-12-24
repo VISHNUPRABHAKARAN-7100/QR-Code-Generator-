@@ -18,21 +18,30 @@ class AddTextScreen extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: const Icon(Icons.arrow_back,color: Colors.black,),
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
         ),
       ),
+// Text form field for entering text for making the QR code.
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Consumer<ProviderController>(
-                builder: (context, value, child) => QrImage(
-                  data: value.textFormfieldController.text,
-                  size: 250,
-                ),
-              ),
+              Provider.of<ProviderController>(context)
+                      .textFormfieldController
+                      .text
+                      .isEmpty
+                  ? const SizedBox()
+                  : Consumer<ProviderController>(
+                      builder: (context, value, child) => QrImage(
+                        data: value.textFormfieldController.text,
+                        size: 250,
+                      ),
+                    ),
               const SizedBox(
                 height: 30,
               ),
@@ -53,6 +62,7 @@ class AddTextScreen extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
+// Button for submit the text.
               Container(
                 width: 250,
                 decoration: BoxDecoration(

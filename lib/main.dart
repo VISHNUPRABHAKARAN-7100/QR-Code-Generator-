@@ -3,9 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:qr_code_generator/controller/provider_controller.dart';
 import 'package:qr_code_generator/view/splash_screen.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() =>runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
